@@ -11,7 +11,7 @@ public class Cli {
         System.out.println("May I Have your name?");
         name = sc.nextLine();
     }
-    public static String getName(){
+    public static String getName() {
         return name;
     }
 }
