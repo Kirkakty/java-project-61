@@ -1,57 +1,78 @@
 package hexlet.code.Game;
 
-import hexlet.code.Cli;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Even {
-    public static int correctCount;
-    public static int incorrectCount;
+public final class Even implements Games<String> {
+    public int correctCount;
+    public boolean isCorrectAnswer;
+    public String correctAnswer;
+    public String answer;
+    public int number;
 
-    public static void evenGame() {
+
+    @Override
+    public void start() {
+        getQuestions();
+        setAnswer();
+        check(number, answer);
+    }
+
+    public void printRules() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
-        Random rn = new Random();
-        int number = rn.nextInt(120);
-        System.out.println("Question : " + number);
-        System.out.print("Your answer: ");
-        Scanner scEven = new Scanner(System.in);
-        String evenAnswer = scEven.nextLine();
-        switch (evenAnswer) {
+    }
+     public void getQuestions() {
+         Random rn = new Random();
+         number = rn.nextInt(120);
+         System.out.println("Question : " + number);
+         System.out.print("Your answer: ");
+     }
+
+     public void setAnswer(){
+         Scanner sc = new Scanner(System.in);
+         answer = sc.nextLine();
+     }
+    public void check(int number, String answer) {
+        switch (answer) {
             case "yes":
                 if (number % 2 == 0) {
-                    System.out.println("Correct!");
+                    isCorrectAnswer = true;
+                    System.out.println(number);
                     correctCount++;
                 } else {
-                    System.out.println("'yes' is wrong answer :(. Correct answer was 'no'");
-                    incorrectCount++;
+                    isCorrectAnswer = false;
+                    correctAnswer = "yes";
                 }
                 break;
             case "no":
                 if (number % 2 != 0) {
-                    System.out.println("Correct!");
+                    isCorrectAnswer =true;
                     correctCount++;
                 } else {
-                    System.out.println("'no' is wrong answer :(. Correct answer was 'yes'");
-                    incorrectCount++;
+                    isCorrectAnswer = false;
+                    correctAnswer = "yes";
                 }
                 break;
             default:
+                isCorrectAnswer = false;
                 if (number % 2 == 0) {
-                    System.out.println("'" + evenAnswer + "' is wrong answer :(. Correct answer was 'yes");
-                    incorrectCount++;
+                    correctAnswer = "yes";
                 } else {
-                    System.out.println("'" + evenAnswer + "' is wrong answer :(. Correct answer was 'no");
-                    incorrectCount++;
+                    correctAnswer = "no";
                 }
                 break;
         }
-        if (incorrectCount > 0) {
-            System.out.println("Let's try again, " + Cli.getName());
-        } else if (correctCount < 3) {
-            Even.evenGame();
-        } else {
-            System.out.println("Congratulation," + Cli.getName() + "!");
-        }
-
+    }
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+    public boolean isCorrectAnswer() {
+        return isCorrectAnswer;
+    }
+    public String getAnswer() {
+        return answer;
+    }
+    public int getCountCorrectAnswer() {
+        return correctCount;
     }
 }
