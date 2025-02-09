@@ -1,9 +1,6 @@
 package hexlet.code;
-
 import hexlet.code.Game.Games;
 import hexlet.code.Game.Greet;
-
-import java.util.Scanner;
 
 public class Engine {
     public static void congratulation() {
@@ -17,10 +14,12 @@ public class Engine {
             if (thisGame.isCorrectAnswer()) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + thisGame.getAnswer() + "' is wrong answer ;(. Correct answer was '" + thisGame.getCorrectAnswer() + "'");
+                System.out.println("'" + thisGame.getAnswer() + "' is wrong answer ;(. Correct answer was '"
+                        + thisGame.getCorrectAnswer() + "'");
             }
         } while (thisGame.isCorrectAnswer() & thisGame.getCountCorrectAnswer() < 3);
-        if(3 == thisGame.getCountCorrectAnswer() ) {
-            Engine.congratulation();}
+        if (3 == thisGame.getCountCorrectAnswer()) {
+            Engine.congratulation();
+        }
     }
 }

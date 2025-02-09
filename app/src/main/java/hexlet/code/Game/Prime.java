@@ -3,48 +3,57 @@ package hexlet.code.Game;
 import java.util.Random;
 import java.util.Scanner;
 
-public final class Even implements Games<String> {
-    public int correctCount;
+public class Prime implements Games<String> {
+    public static int primeNumber;
+    public static int correctCount;
     public boolean isCorrectAnswer;
-    public String correctAnswer;
-    public String answer;
-    public int number;
-
+    public static String inputAnswer;
+    public static String correctAnswer;
+    public int countOfDivide;
 
     @Override
     public void start() {
-        getQuestions();
+        getQuestion();
         setAnswer();
-        check(number, answer);
+        check(primeNumber, inputAnswer);
     }
 
+    @Override
     public void printRules() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
-    public void getQuestions() {
+    public void getQuestion() {
         Random rn = new Random();
-        number = rn.nextInt(120);
-        System.out.println("Question : " + number);
+        primeNumber = 1 + rn.nextInt(100);
+        System.out.println("Question: " + primeNumber);
         System.out.print("Your answer: ");
     }
-
     public void setAnswer() {
         Scanner sc = new Scanner(System.in);
-        answer = sc.nextLine();
+        inputAnswer = sc.nextLine();
     }
-    public void check(int x, String inputAnswer) {
-        switch (inputAnswer) {
+    public int solution(int x) {
+        countOfDivide = 0;
+        for (var i = 1; i <= x; i++) {
+            if (x % i == 0) {
+                countOfDivide++;
+            }
+        }
+        return countOfDivide;
+    }
+    public void check(int x, String answer) {
+        switch (answer) {
             case "yes":
-                if (x % 2 == 0) {
+                if (solution(x) == 2) {
                     isCorrectAnswer = true;
                     correctCount++;
                 } else {
                     isCorrectAnswer = false;
-                    correctAnswer = "yes";
+                    correctAnswer = "no";
                 }
                 break;
             case "no":
-                if (x % 2 != 0) {
+                if (solution(x) != 2) {
                     isCorrectAnswer = true;
                     correctCount++;
                 } else {
@@ -54,7 +63,7 @@ public final class Even implements Games<String> {
                 break;
             default:
                 isCorrectAnswer = false;
-                if (x % 2 == 0) {
+                if (solution(x) == 2) {
                     correctAnswer = "yes";
                 } else {
                     correctAnswer = "no";
@@ -62,16 +71,23 @@ public final class Even implements Games<String> {
                 break;
         }
     }
+    @Override
+    public String getAnswer() {
+        return inputAnswer;
+    }
+
+    @Override
     public String getCorrectAnswer() {
         return correctAnswer;
     }
-    public boolean isCorrectAnswer() {
-        return isCorrectAnswer;
-    }
-    public String getAnswer() {
-        return answer;
-    }
+
+    @Override
     public int getCountCorrectAnswer() {
         return correctCount;
+    }
+
+    @Override
+    public boolean isCorrectAnswer() {
+        return isCorrectAnswer;
     }
 }

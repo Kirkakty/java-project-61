@@ -1,11 +1,9 @@
 package hexlet.code.Game;
 
-import hexlet.code.Cli;
-
 import java.util.Random;
 import java.util.Scanner;
 
-public class Progression implements Games<Integer>{
+public class Progression implements Games<Integer> {
 
     public static int countOfNumber;
     public static int correctCount = 0;
@@ -20,7 +18,7 @@ public class Progression implements Games<Integer>{
     public void start() {
         getQuestion();
         setAnswer();
-        check(correctAnswer,inputAnswer);
+        check(correctAnswer, inputAnswer);
     }
 
     @Override
@@ -45,18 +43,18 @@ public class Progression implements Games<Integer>{
         }
         System.out.println("\nYour answer: ");
     }
-        public void setAnswer() {
-            Scanner sc = new Scanner(System.in);
-            inputAnswer = sc.nextInt();
-        }
+    public void setAnswer() {
+        Scanner sc = new Scanner(System.in);
+        inputAnswer = sc.nextInt();
+    }
 
-        public void check(int correctAnswer, int inputAnswer){
-        if(correctAnswer == inputAnswer) {
+    public void check(int correctAns, int answer) {
+        if (correctAns == answer) {
             isCorrectAnswer = true;
             correctCount++;
         } else {
             isCorrectAnswer = false;
-    }
+        }
     }
     @Override
     public Integer getAnswer() {

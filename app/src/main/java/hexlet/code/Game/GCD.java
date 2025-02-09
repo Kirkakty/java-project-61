@@ -15,7 +15,7 @@ public class GCD implements Games<Integer> {
     public void start() {
         getQuestion();
         setAnswer();
-        check(firstNumber,secondNumber,inputAnswer);
+        check(firstNumber, secondNumber, inputAnswer);
     }
 
     @Override
@@ -44,38 +44,35 @@ public class GCD implements Games<Integer> {
     }
 
 
-    public void getQuestion(){
+    public void getQuestion() {
         Random rn = new Random();
         firstNumber = rn.nextInt(100);
         secondNumber = rn.nextInt(100);
         System.out.println(firstNumber + " " + secondNumber);
         System.out.print("Your answer: ");
     }
-    public void setAnswer(){
+    public void setAnswer() {
         Scanner sc = new Scanner(System.in);
         inputAnswer = sc.nextInt();
     }
 
-    public int solution(int firstNumber,int secondNumber) {
+    public int solution(int x, int y) {
         for (int i = 100; i >= 1; i--) {
-            if (firstNumber % i == 0 && secondNumber % i == 0) {
+            if (x % i == 0 && y % i == 0) {
                 result = i;
                 break;
             }
         }
         return result;
     }
-    public void check(int firstNumber, int secondNumber,int inputAnswer) {
-        if(solution(firstNumber,secondNumber) == inputAnswer){
+    public void check(int x, int y, int answer) {
+        if (solution(x, y) == answer) {
             isCorrectAnswer = true;
             correctCount++;
         } else {
             isCorrectAnswer = false;
-            correctAnswer = solution(firstNumber,secondNumber);
+            correctAnswer = solution(x, y);
+        }
     }
-
-
-    }
-
-    }
+}
 

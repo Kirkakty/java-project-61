@@ -1,9 +1,5 @@
 package hexlet.code.Game;
 
-import hexlet.code.Cli;
-
-import java.sql.Array;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -44,17 +40,17 @@ public class Calc implements Games<Integer> {
         inputAnswer = sc.nextInt();
     }
 
-    public int solution(int firstNumber, int secondNumber, char operator) {
+    public int solution(int x, int y, char operation) {
         int result = 0;
-        switch (operator) {
+        switch (operation) {
             case '*':
-                result = firstNumber * secondNumber;
+                result = x * y;
                 break;
             case '+':
-                result = firstNumber + secondNumber;
+                result = x + y;
                 break;
             case '-':
-                result = firstNumber - secondNumber;
+                result = x - y;
                 break;
             default:
                 System.out.println("Error operator");
@@ -62,15 +58,15 @@ public class Calc implements Games<Integer> {
         return result;
     }
 
-    public void check(int firstNumber, int secondNumber, char operator, int inputAnswer) {
-        if (solution(firstNumber, secondNumber, operator) == inputAnswer) {
+    public void check(int x, int y, char operation, int answer) {
+        if (solution(x, y, operation) == answer) {
             isCorrectAnswer = true;
             correctCount++;
         } else {
             isCorrectAnswer = false;
-            correctAnswer = solution(firstNumber, secondNumber, operator);
+            correctAnswer = solution(x, y, operation);
         }
-        }
+    }
     @Override
     public Integer getAnswer() {
         return inputAnswer;
@@ -90,5 +86,5 @@ public class Calc implements Games<Integer> {
     public boolean isCorrectAnswer() {
         return isCorrectAnswer;
     }
-    }
+}
 
