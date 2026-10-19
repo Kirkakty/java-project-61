@@ -2,21 +2,27 @@ package hexlet.code.Game;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Calc {
+public class Calc implements GameInterface{
 public int firstNumber;
 public int secondNumber;
 public int answerNumber;
 public char operators[] = {'+', '-', '*'};
 public char operator;
+public int result;
+public String answer;
+public boolean isCorrectAnswer;
+public int correctCount;
 
+@Override
     public void start(){
         printRules();
         getQuestions();
-        getAnswer();
-        result(firstNumber, secondNumber, operator);
-        check(firstNumber, secondNumber, operator, answerNumber);
+        setAnswer();
+        resultSum(firstNumber, secondNumber, operator);
+        checkAnswer(firstNumber, secondNumber, operator, answerNumber);
     }
 
+    @Override
     public void printRules() {
         System.out.println("What is the result of the expression?");
     }
@@ -26,16 +32,17 @@ public char operator;
         firstNumber = rn.nextInt(15);
         secondNumber = rn.nextInt(10);
         operator = operators[rn.nextInt(3)];
-        System.out.println(firstNumber + " " + operator + " " + secondNumber + "\n Your answer: ");
+        System.out.print(firstNumber + " " + operator + " " + secondNumber + "\n Your answer: ");
     }
 
-    public void getAnswer() {
+    public void setAnswer() {
         Scanner sc = new Scanner(System.in);
         answerNumber = sc.nextInt();
+        answer = String.valueOf(answerNumber);
     }
 
-    public int result(int x, int y, char z) {
-        int result = 0;
+    public int resultSum(int x, int y, char z) {
+        result = 0;
         switch (operator) {
             case '+':
                 result = x + y;
@@ -53,13 +60,34 @@ public char operator;
         return result;
     }
 
-    public void check(int x, int y, char z, int answer) {
-        if(result(x, y, z) == answer) {
-            System.out.println("True");
+    public void checkAnswer(int x, int y, char z, int answer) {
+        if(resultSum(x, y, z) == answer) {
+           isCorrectAnswer = true;
+           correctCount++;
         }
         else {
-            System.out.println("Wrong");
+            isCorrectAnswer = false;
+
         }
     }
 
+    @Override
+    public String getAnswer(){
+        return answer;
+    }
+
+    @Override
+    public String getCorrectAnswer() {
+        return String.valueOf(result);
+    }
+
+    @Override
+    public boolean isCorrectAnswer(){
+        return isCorrectAnswer;
+    }
+
+    @Override
+    public int getCountCorrectAnswer() {
+        return correctCount;
+    }
 }

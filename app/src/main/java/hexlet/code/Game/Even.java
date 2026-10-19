@@ -2,13 +2,17 @@ package hexlet.code.Game;
 import java.util.Scanner;
 import java.util.Random;
 
-public class Even {
+public class Even implements GameInterface {
     public int numberQuest;
     public String answer;
+    public boolean isCorrectAnswer;
+    public int correctCount;
+    public String correctAnswer;
 
+    @Override
     public void start(){
         printRule();
-        getNumber();
+        getQuestions();
         setAnswer();
         checkAnswer(numberQuest,answer);
     }
@@ -16,10 +20,10 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
     }
 
-    public void getNumber (){
+    public void getQuestions (){
         Random rn = new Random();
         numberQuest = rn.nextInt(150);
-        System.out.println("Question: " + numberQuest + "\n Answer is: ");
+        System.out.print("Question: " + numberQuest + "\n Answer is: ");
     }
 
     public void setAnswer() {
@@ -31,18 +35,23 @@ public class Even {
         switch (inputAnswer) {
             case "yes":
                 if(x % 2 == 0) {
-                    System.out.println("Correct");
+                    isCorrectAnswer = true;
+                    correctCount++;
                 }
                 else {
-                    System.out.println("yes' is wrong answer ;(. Correct answer was 'no");
+                    isCorrectAnswer = false;
+                    correctAnswer = "no";
+
                 }
                 break;
             case "no":
                 if(x % 2 == 0) {
-                    System.out.println("no' is wrong answer ;(. Correct answer was 'yes");
+                    isCorrectAnswer = false;
+                    correctAnswer = "yes";
                 }
                 else {
-                    System.out.println("Correct");
+                    isCorrectAnswer = true;
+                    correctCount++;
                 }
                 break;
             default:
@@ -51,6 +60,29 @@ public class Even {
         }
     }
 
+    @Override
+    public String getAnswer(){
+        return answer;
+    }
 
+    @Override
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    @Override
+    public void printRules() {
+
+    }
+
+    @Override
+    public boolean isCorrectAnswer() {
+        return isCorrectAnswer;
+    }
+
+    @Override
+    public int getCountCorrectAnswer() {
+        return correctCount;
+    }
 
 }

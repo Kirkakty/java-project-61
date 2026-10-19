@@ -1,6 +1,7 @@
 package hexlet.code;
 import hexlet.code.Game.Calc;
 import hexlet.code.Game.Even;
+import hexlet.code.Game.GameInterface;
 
 import java.util.Scanner;
 
@@ -11,6 +12,8 @@ public class App {
         Scanner choise = new Scanner(System.in);
         System.out.println("Your choise: ");
         String numberOfGame = choise.nextLine();
+        Engine engine = new Engine();
+        GameInterface game;
 
         switch (numberOfGame) {
             case "0":
@@ -21,12 +24,12 @@ public class App {
                 greet.greet();
                 break;
             case "2":
-                Even game= new Even();
-                game.start();
+                game= new Even();
+                engine.start(game);
                 break;
             case "3":
-                Calc calc = new Calc();
-                calc.start();
+                game = new Calc();
+                engine.start(game);
                 break;
         }
     }
