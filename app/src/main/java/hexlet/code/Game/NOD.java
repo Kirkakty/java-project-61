@@ -3,7 +3,7 @@ package hexlet.code.Game;
 import java.util.Random;
 import java.util.Scanner;
 
-public class NOD implements GameInterface{
+public class NOD implements GameInterface {
 
     public boolean isCorrectAnswer;
     public int correctCount;
@@ -14,11 +14,11 @@ public class NOD implements GameInterface{
     public int correctAnswer;
 
     @Override
-    public void start(){
+    public void start() {
         getQuestions();
         setAnswer();
-        checkAnswer(firstNumber,secondNumber,answer);
-}
+        checkAnswer(firstNumber, secondNumber, answer);
+    }
 
     public void setAnswer() {
         Scanner sc = new Scanner(System.in);
@@ -28,13 +28,13 @@ public class NOD implements GameInterface{
     public void getQuestions() {
         Random rn = new Random();
         firstNumber = rn.nextInt(120);
-        secondNumber=rn.nextInt(120);
-        System.out.print("Question: " + firstNumber + " " + secondNumber +"\n Your answer: ");
+        secondNumber = rn.nextInt(120);
+        System.out.print("Question: " + firstNumber + " " + secondNumber + "\n Your answer: ");
     }
 
-    public int resultMath(int x, int y){
-        for(int i = 120; i>= 0; i--) {
-            if(x % i == 0 && y % i == 0) {
+    public int resultMath(int x, int y) {
+        for (int i = 120; i >= 0; i--) {
+            if (x % i == 0 && y % i == 0) {
                 result = i;
                 break;
             }
@@ -42,8 +42,8 @@ public class NOD implements GameInterface{
         return result;
     }
 
-    public void checkAnswer(int x, int y, int answer){
-        if(resultMath(x,y) == answer) {
+    public void checkAnswer(int x, int y, int answer) {
+        if (resultMath(x, y) == answer) {
             isCorrectAnswer = true;
             correctCount++;
         } else {

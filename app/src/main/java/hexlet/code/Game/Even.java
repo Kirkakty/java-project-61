@@ -1,6 +1,7 @@
 package hexlet.code.Game;
-import java.util.Scanner;
+
 import java.util.Random;
+import java.util.Scanner;
 
 public class Even implements GameInterface {
     public int numberQuest;
@@ -10,17 +11,18 @@ public class Even implements GameInterface {
     public String correctAnswer;
 
     @Override
-    public void start(){
+    public void start() {
         printRule();
         getQuestions();
         setAnswer();
-        checkAnswer(numberQuest,answer);
+        checkAnswer(numberQuest, answer);
     }
+
     public void printRule() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'");
     }
 
-    public void getQuestions (){
+    public void getQuestions() {
         Random rn = new Random();
         numberQuest = rn.nextInt(150);
         System.out.print("Question: " + numberQuest + "\n Answer is: ");
@@ -34,22 +36,19 @@ public class Even implements GameInterface {
     public void checkAnswer(int x, String inputAnswer) {
         switch (inputAnswer) {
             case "yes":
-                if(x % 2 == 0) {
+                if (x % 2 == 0) {
                     isCorrectAnswer = true;
                     correctCount++;
-                }
-                else {
+                } else {
                     isCorrectAnswer = false;
                     correctAnswer = "no";
-
                 }
                 break;
             case "no":
-                if(x % 2 == 0) {
+                if (x % 2 == 0) {
                     isCorrectAnswer = false;
                     correctAnswer = "yes";
-                }
-                else {
+                } else {
                     isCorrectAnswer = true;
                     correctCount++;
                 }
@@ -61,7 +60,7 @@ public class Even implements GameInterface {
     }
 
     @Override
-    public String getAnswer(){
+    public String getAnswer() {
         return answer;
     }
 
@@ -71,9 +70,7 @@ public class Even implements GameInterface {
     }
 
     @Override
-    public void printRules() {
-
-    }
+    public void printRules() {}
 
     @Override
     public boolean isCorrectAnswer() {
@@ -84,5 +81,4 @@ public class Even implements GameInterface {
     public int getCountCorrectAnswer() {
         return correctCount;
     }
-
 }

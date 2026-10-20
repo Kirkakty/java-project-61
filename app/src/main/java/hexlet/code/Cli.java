@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Cli {
     public static String name;
 
-    public void greet(){
+    public void greet() {
         read();
         getName();
         hello();
     }
+
     public static void read() {
         Scanner sc = new Scanner(System.in);
         System.out.println("May i have your name?");

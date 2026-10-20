@@ -13,22 +13,25 @@ public class Engine {
         System.out.println("Congratulation, " + Cli.getName() + '!');
     }
 
-
-        public void start(GameInterface thisGame) {
-            Cli cli = new Cli();
-            cli.greet();
-            thisGame.printRules();
-            do {
-                thisGame.start();
-                if (thisGame.isCorrectAnswer()) {
-                    System.out.println("Correct!");
-                } else {
-                    System.out.println("'" + thisGame.getAnswer() + "' is wrong answer ;(. Correct answer was '" + thisGame.getCorrectAnswer() + "'");
-                }
+    public void start(GameInterface thisGame) {
+        Cli cli = new Cli();
+        cli.greet();
+        thisGame.printRules();
+        do {
+            thisGame.start();
+            if (thisGame.isCorrectAnswer()) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println(
+                        "'"
+                                + thisGame.getAnswer()
+                                + "' is wrong answer ;(. Correct answer was '"
+                                + thisGame.getCorrectAnswer()
+                                + "'");
             }
-            while (thisGame.isCorrectAnswer() & thisGame.getCountCorrectAnswer() < 3);
-            if (3 == thisGame.getCountCorrectAnswer()) {
-                Engine.congratulation();
-            }
+        } while (thisGame.isCorrectAnswer() & thisGame.getCountCorrectAnswer() < 3);
+        if (3 == thisGame.getCountCorrectAnswer()) {
+            Engine.congratulation();
         }
+    }
 }

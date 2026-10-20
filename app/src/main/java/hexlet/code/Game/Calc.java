@@ -1,20 +1,21 @@
 package hexlet.code.Game;
-import java.util.Scanner;
+
 import java.util.Random;
+import java.util.Scanner;
 
-public class Calc implements GameInterface{
-public int firstNumber;
-public int secondNumber;
-public int answerNumber;
-public char operators[] = {'+', '-', '*'};
-public char operator;
-public int result;
-public String answer;
-public boolean isCorrectAnswer;
-public int correctCount;
+public class Calc implements GameInterface {
+    public int firstNumber;
+    public int secondNumber;
+    public int answerNumber;
+    public char operators[] = {'+', '-', '*'};
+    public char operator;
+    public int result;
+    public String answer;
+    public boolean isCorrectAnswer;
+    public int correctCount;
 
-@Override
-    public void start(){
+    @Override
+    public void start() {
         printRules();
         getQuestions();
         setAnswer();
@@ -27,7 +28,7 @@ public int correctCount;
         System.out.println("What is the result of the expression?");
     }
 
-    public void getQuestions(){
+    public void getQuestions() {
         Random rn = new Random();
         firstNumber = rn.nextInt(15);
         secondNumber = rn.nextInt(10);
@@ -61,18 +62,16 @@ public int correctCount;
     }
 
     public void checkAnswer(int x, int y, char z, int answer) {
-        if(resultSum(x, y, z) == answer) {
-           isCorrectAnswer = true;
-           correctCount++;
-        }
-        else {
+        if (resultSum(x, y, z) == answer) {
+            isCorrectAnswer = true;
+            correctCount++;
+        } else {
             isCorrectAnswer = false;
-
         }
     }
 
     @Override
-    public String getAnswer(){
+    public String getAnswer() {
         return answer;
     }
 
@@ -82,7 +81,7 @@ public int correctCount;
     }
 
     @Override
-    public boolean isCorrectAnswer(){
+    public boolean isCorrectAnswer() {
         return isCorrectAnswer;
     }
 
