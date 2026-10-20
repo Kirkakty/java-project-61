@@ -27,8 +27,8 @@ public class NOD implements GameInterface {
 
     public void getQuestions() {
         Random rn = new Random();
-        firstNumber = rn.nextInt(120);
-        secondNumber = rn.nextInt(120);
+        firstNumber = 1 + rn.nextInt(119);
+        secondNumber = 1 + rn.nextInt(119);
         System.out.print("Question: " + firstNumber + " " + secondNumber + "\n Your answer: ");
     }
 
