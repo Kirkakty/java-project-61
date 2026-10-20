@@ -39,3 +39,15 @@ cd java-project-61
 
 Even.java
 [![asciicast](https://asciinema.org/a/EaM0VJk4NktmSbzv.svg)](https://asciinema.org/a/EaM0VJk4NktmSbzv)
+
+Calc.java
+[![asciicast](https://asciinema.org/a/Girw3gH1GethAdv4.svg)](https://asciinema.org/a/Girw3gH1GethAdv4)
+
+NOD.java
+[![asciicast](https://asciinema.org/a/pSTRt6Ory1oCllrz.svg)](https://asciinema.org/a/pSTRt6Ory1oCllrz)
+
+Progressions.java
+[![asciicast](https://asciinema.org/a/vicIEC1PnC7gDYwR.svg)](https://asciinema.org/a/vicIEC1PnC7gDYwR)
+
+Prime.java
+[![asciicast](https://asciinema.org/a/ISDiwjLVg0QhrN2J.svg)](https://asciinema.org/a/ISDiwjLVg0QhrN2J)
