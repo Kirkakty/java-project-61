@@ -38,6 +38,4 @@ cd java-project-61
 [Хекслет](https://ru.hexlet.io/) — школа программирования: авторские программы обучения с практикой, поддержкой наставников и реальными проектами, которые остаются в резюме. Этот репозиторий — один из таких проектов.
 
 Even.java
-[![asciicast](https://asciinema.org/a/DLIl0PjR6sHFp60R.svg)](https://asciinema.org/a/DLIl0PjR6sHFp60R)
-<script src="https://asciinema.org/a/DLIl0PjR6sHFp60R.js" id="asciicast-DLIl0PjR6sHFp60R" async="true"></script>
-<a href="https://asciinema.org/a/DLIl0PjR6sHFp60R" target="_blank"><img src="https://asciinema.org/a/DLIl0PjR6sHFp60R.svg" /></a>
+<a href="https://asciinema.org/a/EaM0VJk4NktmSbzv" target="_blank"><img src="https://asciinema.org/a/EaM0VJk4NktmSbzv.svg" /></a>
