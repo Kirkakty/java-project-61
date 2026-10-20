@@ -16,7 +16,6 @@ public class Calc implements GameInterface {
 
     @Override
     public void start() {
-        printRules();
         getQuestions();
         setAnswer();
         resultSum(firstNumber, secondNumber, operator);

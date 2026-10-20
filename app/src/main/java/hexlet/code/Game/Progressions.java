@@ -3,7 +3,7 @@ package hexlet.code.Game;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Progressions implements GameInterface{
+public class Progressions implements GameInterface {
 
     public int lengthOfNumbers;
     public int progressionNumber;
@@ -17,13 +17,13 @@ public class Progressions implements GameInterface{
     public void getQuestions() {
         Random rn = new Random();
         lengthOfNumbers = 5 + rn.nextInt(5);
-        progressionNumber =1 + rn.nextInt(10);
+        progressionNumber = 1 + rn.nextInt(10);
         firstNumber = rn.nextInt(30);
         hiddenNumber = rn.nextInt(lengthOfNumbers);
         System.out.println("Questions: ");
         for (int i = 0; i <= lengthOfNumbers; i++) {
             firstNumber += progressionNumber;
-            if(i == hiddenNumber) {
+            if (i == hiddenNumber) {
                 System.out.print("..");
                 result = firstNumber;
             } else {
@@ -33,7 +33,7 @@ public class Progressions implements GameInterface{
         System.out.print("\nYour answer: ");
     }
 
-    public void setAnswer(){
+    public void setAnswer() {
         Scanner sc = new Scanner(System.in);
         answer = sc.nextInt();
     }

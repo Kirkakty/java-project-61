@@ -54,7 +54,7 @@ public class Even implements GameInterface {
                 }
                 break;
             default:
-                System.out.println("wrong");
+                isCorrectAnswer = false;
                 if(x % 2 == 0) {
                     correctAnswer = "yes";
                 } else {
