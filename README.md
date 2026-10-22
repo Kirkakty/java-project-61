@@ -38,16 +38,16 @@ cd java-project-61
 [Хекслет](https://ru.hexlet.io/) — школа программирования: авторские программы обучения с практикой, поддержкой наставников и реальными проектами, которые остаются в резюме. Этот репозиторий — один из таких проектов.
 
 Even.java
-[![asciicast](https://asciinema.org/a/EaM0VJk4NktmSbzv.svg)](https://asciinema.org/a/EaM0VJk4NktmSbzv)
+[![asciicast](https://asciinema.org/a/m3J4ANFC5GC4yURO.svg)](https://asciinema.org/a/m3J4ANFC5GC4yURO)
 
 Calc.java
-[![asciicast](https://asciinema.org/a/Girw3gH1GethAdv4.svg)](https://asciinema.org/a/Girw3gH1GethAdv4)
+[![asciicast](https://asciinema.org/a/F8tDbKjRUi3btjC6.svg)](https://asciinema.org/a/F8tDbKjRUi3btjC6)
 
-NOD.java
-[![asciicast](https://asciinema.org/a/pSTRt6Ory1oCllrz.svg)](https://asciinema.org/a/pSTRt6Ory1oCllrz)
+GCD.java
+[![asciicast](https://asciinema.org/a/W3EtAIt63gRVgAXH.svg)](https://asciinema.org/a/W3EtAIt63gRVgAXH)
 
 Progressions.java
-[![asciicast](https://asciinema.org/a/vicIEC1PnC7gDYwR.svg)](https://asciinema.org/a/vicIEC1PnC7gDYwR)
+[![asciicast](https://asciinema.org/a/1MU5O7DOb36VcZZm.svg)](https://asciinema.org/a/1MU5O7DOb36VcZZm)
 
 Prime.java
-[![asciicast](https://asciinema.org/a/ISDiwjLVg0QhrN2J.svg)](https://asciinema.org/a/ISDiwjLVg0QhrN2J)
+[![asciicast](https://asciinema.org/a/BNBWveRuFWQdEm8L.svg)](https://asciinema.org/a/BNBWveRuFWQdEm8L)
