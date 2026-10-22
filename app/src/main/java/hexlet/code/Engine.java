@@ -19,7 +19,7 @@ public class Engine {
     }
 
     public static void getQuestions(String questions) {
-        System.out.print("Questions: " + questions + "\nYour answer: ");
+        System.out.print("Question: " + questions + "\nYour answer: ");
     }
 
     public static boolean check(String userAnswer, String correctAnswer) {
