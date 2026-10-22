@@ -7,7 +7,6 @@ public class Cli {
 
     public void greet() {
         read();
-        getName();
         hello();
     }
 

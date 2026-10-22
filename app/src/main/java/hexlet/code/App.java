@@ -13,7 +13,6 @@ public class App {
         System.out.println("Your choise: ");
         String numberOfGame = choise.nextLine();
         Engine engine = new Engine();
-        GameInterface game;
 
         switch (numberOfGame) {
             case "0":
@@ -24,24 +23,10 @@ public class App {
                 greet.greet();
                 break;
             case "2":
-                game = new Even();
-                engine.start(game);
-                break;
+               new Even().play();
+               break;
             case "3":
-                game = new Calc();
-                engine.start(game);
-                break;
-            case "4":
-                game = new NOD();
-                engine.start(game);
-                break;
-            case "5":
-                game = new Progressions();
-                engine.start(game);
-                break;
-            case "6":
-                game = new Prime();
-                engine.start(game);
+                new Calc().play();
                 break;
         }
     }

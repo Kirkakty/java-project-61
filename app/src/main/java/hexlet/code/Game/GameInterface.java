@@ -1,5 +1,6 @@
 package hexlet.code.Game;
 
+
 public interface GameInterface {
     String getAnswer();
 

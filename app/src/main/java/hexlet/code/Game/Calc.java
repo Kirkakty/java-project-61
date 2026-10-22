@@ -1,91 +1,50 @@
 package hexlet.code.Game;
 
+import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Calc implements GameInterface {
+public class Calc {
     public int firstNumber;
     public int secondNumber;
     public int answerNumber;
-    public char operators[] = {'+', '-', '*'};
+    public char[] operators = {'+', '-', '*'};
     public char operator;
-    public int result;
-    public String answer;
-    public boolean isCorrectAnswer;
-    public int correctCount;
+    public String questions;
 
-    @Override
-    public void start() {
-        getQuestions();
-        setAnswer();
-        resultSum(firstNumber, secondNumber, operator);
-        checkAnswer(firstNumber, secondNumber, operator, answerNumber);
+    public String printRules() {
+        return "What is the result of the expression?";
     }
 
-    @Override
-    public void printRules() {
-        System.out.println("What is the result of the expression?");
-    }
-
-    public void getQuestions() {
+    public void play() {
+        Engine.start(printRules());
         Random rn = new Random();
-        firstNumber = rn.nextInt(15);
-        secondNumber = rn.nextInt(10);
-        operator = operators[rn.nextInt(3)];
-        System.out.print(firstNumber + " " + operator + " " + secondNumber + "\n Your answer: ");
-    }
+        while(!Engine.isFinished()) {
+            firstNumber = rn.nextInt(100);
+            secondNumber = rn.nextInt(100);
+            operator = operators[rn.nextInt(3)];
+            questions = firstNumber + " " + operator + " " + secondNumber;
+            Engine.getQuestions(questions);
+            String answer = Engine.getAnswer();
+            switch (operator) {
+                case '+':
+                    answerNumber = firstNumber + secondNumber;
+                    break;
+                case '-':
+                    answerNumber = firstNumber - secondNumber;
+                    break;
+                case '*':
+                    answerNumber = firstNumber * secondNumber;
+                    break;
+                default:
+                    System.out.println("Error");
+            }
+            Engine.check(answer, String.valueOf(answerNumber));
+            if(!answer.equals(String.valueOf(answerNumber))){
+                return;
+            }
+            Engine.finishGame();
+            }
 
-    public void setAnswer() {
-        Scanner sc = new Scanner(System.in);
-        answerNumber = sc.nextInt();
-        answer = String.valueOf(answerNumber);
-    }
-
-    public int resultSum(int x, int y, char z) {
-        result = 0;
-        switch (operator) {
-            case '+':
-                result = x + y;
-                break;
-            case '-':
-                result = x - y;
-                break;
-            case '*':
-                result = x * y;
-                break;
-            default:
-                System.out.println("Error");
-                break;
-        }
-        return result;
-    }
-
-    public void checkAnswer(int x, int y, char z, int answer) {
-        if (resultSum(x, y, z) == answer) {
-            isCorrectAnswer = true;
-            correctCount++;
-        } else {
-            isCorrectAnswer = false;
         }
     }
-
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
-
-    @Override
-    public String getCorrectAnswer() {
-        return String.valueOf(result);
-    }
-
-    @Override
-    public boolean isCorrectAnswer() {
-        return isCorrectAnswer;
-    }
-
-    @Override
-    public int getCountCorrectAnswer() {
-        return correctCount;
-    }
-}
