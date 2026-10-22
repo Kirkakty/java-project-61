@@ -15,7 +15,7 @@ public class App {
 
         switch (numberOfGame) {
             case "0":
-                System.out.print("Bye!");
+                System.out.println("Bye!");
                 break;
             case "1":
                 Cli greet = new Cli();
@@ -37,7 +37,7 @@ public class App {
                 new Prime().play();
                 break;
             default:
-                System.out.print("Wrong button, Bye!");
+                System.out.println("Wrong button, Bye!");
                 break;
         }
     }
