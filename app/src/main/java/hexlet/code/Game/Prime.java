@@ -1,97 +1,50 @@
 package hexlet.code.Game;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
-import java.util.Scanner;
 
-public class Prime implements GameInterface {
-    public boolean isCorrectAnswer;
-    public int countCorrect;
-    public String answer;
-    public String correctAnswer;
-    public int questionsNumber;
-    public int countResult;
+public class Prime {
 
-    public void setAnswer() {
-        Scanner sc = new Scanner(System.in);
-        answer = sc.nextLine();
+    public String printRule() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    public void getQuestions() {
+    public void play() {
+        Engine.start(printRule());
         Random rn = new Random();
-        questionsNumber = 1 + rn.nextInt(9);
-        System.out.print("Questions: " + questionsNumber + " \nYour answer: ");
-    }
-
-    public void solution(int x) {
-        countResult = 0;
-        for (int i = 1; i <= x; i++) {
-            if (x % i == 0) {
-                countResult++;
+        while (!Engine.isFinished()) {
+            int countResult = 0;
+            int questionNumber = 1 + rn.nextInt(100);
+            Engine.getQuestions(String.valueOf(questionNumber));
+            String answer = Engine.getAnswer();
+            for (int i = 1; i <= questionNumber; i++) {
+                if (questionNumber % i == 0) {
+                    countResult++;
+                }
             }
+            switch (answer) {
+                case "yes":
+                    if (countResult <= 2) {
+                        Engine.check(answer, "yes");
+                    } else {
+                        Engine.check(answer, "no");
+                        return;
+                    }
+                    break;
+                case "no":
+                    if (countResult <= 2) {
+                        Engine.check(answer, "yes");
+                        return;
+                    } else {
+                        Engine.check(answer, "no");
+                    }
+                    break;
+                default:
+                    System.out.println("Error");
+                    return;
+            }
+            Engine.finishGame();
         }
-    }
-
-    public void check(int x, String answer) {
-        switch (answer) {
-            case "yes":
-            if (x <= 2) {
-                    isCorrectAnswer = true;
-                    countCorrect++;
-                }  else {
-                    isCorrectAnswer = false;
-                    correctAnswer = "no";
-                }
-                break;
-            case "no":
-                if (x <= 2) {
-                    isCorrectAnswer = false;
-                    correctAnswer = "yes";
-                } else {
-                    isCorrectAnswer = true;
-                    countCorrect++;
-                }
-                break;
-            default:
-                isCorrectAnswer = false;
-                if (x <= 2) {
-                    correctAnswer = "yes";
-                } else {
-                    correctAnswer = "no";
-                }
-                break;
-        }
-    }
-
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
-
-    @Override
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    @Override
-    public void printRules() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-    }
-
-    @Override
-    public void start() {
-        getQuestions();
-        setAnswer();
-        solution(questionsNumber);
-        check(countResult, answer);
-    }
-
-    @Override
-    public boolean isCorrectAnswer() {
-        return isCorrectAnswer;
-    }
-
-    @Override
-    public int getCountCorrectAnswer() {
-        return countCorrect;
     }
 }

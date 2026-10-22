@@ -34,6 +34,12 @@ public class App {
             case "5":
                 new Progressions().play();
                 break;
+            case "6":
+                new Prime().play();
+                break;
+            default:
+                System.out.println("Wrong button.");
+                break;
         }
     }
 }
