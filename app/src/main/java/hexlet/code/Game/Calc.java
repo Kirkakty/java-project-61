@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class Calc {
 
-
     public String printRules() {
         return "What is the result of the expression?";
     }

@@ -22,7 +22,7 @@ public class Progression {
             for (int i = 0; i <= lengthOfNumbers; i++) {
                 firstNumber += progressionNumber;
                 if (i == hiddenNumber) {
-                    questionsNumbers = questionsNumbers + "..";
+                    questionsNumbers = questionsNumbers + ".. ";
                     answer = firstNumber;
                 } else {
                     questionsNumbers = questionsNumbers + firstNumber + " ";
