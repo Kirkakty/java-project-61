@@ -53,7 +53,7 @@ public class Engine {
             return;
         }
         if (currentCount == ROUNDS_TO_WIN) {
-            System.out.println("Congratulation, " + Cli.getName() + '!');
+            System.out.println("Congratulations, " + Cli.getName() + '!');
         }
     }
 }

@@ -25,7 +25,7 @@ public class Progression {
                     questionsNumbers = questionsNumbers + "..";
                     answer = firstNumber;
                 } else {
-                    questionsNumbers = questionsNumbers + " " + firstNumber + " ";
+                    questionsNumbers = questionsNumbers + firstNumber + " ";
                 }
             }
             Engine.getQuestions(questionsNumbers);
