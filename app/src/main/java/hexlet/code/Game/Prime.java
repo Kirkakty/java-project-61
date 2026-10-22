@@ -1,7 +1,6 @@
 package hexlet.code.Game;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
 
 public class Prime {
@@ -41,7 +40,11 @@ public class Prime {
                     }
                     break;
                 default:
-                    System.out.println("Error");
+                    if (countResult <= 2) {
+                        Engine.check(answer, "yes");
+                    } else {
+                        Engine.check(answer, "no");
+                    }
                     return;
             }
             Engine.finishGame();

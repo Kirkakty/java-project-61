@@ -1,12 +1,9 @@
 package hexlet.code.Game;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
-import java.util.Scanner;
 
 public class Progressions {
-
 
     public String printRule() {
         return "What number is missing in the progression?";

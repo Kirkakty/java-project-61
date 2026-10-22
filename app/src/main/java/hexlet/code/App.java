@@ -9,22 +9,21 @@ public class App {
         System.out.println(
                 "Please enter the game number and press Enter. \n 1 - Greet \n 2 - Even \n 3 - Calc "
                         + "\n 4 - GCD \n 5- Progression \n 6 - Prime \n 0 - Exit");
-        Scanner choise = new Scanner(System.in);
-        System.out.println("Your choise: ");
-        String numberOfGame = choise.nextLine();
-        Engine engine = new Engine();
+        Scanner choice = new Scanner(System.in);
+        System.out.println("Your choice: ");
+        String numberOfGame = choice.nextLine();
 
         switch (numberOfGame) {
             case "0":
-                System.out.println("Bye!");
+                System.out.print("Bye!");
                 break;
             case "1":
                 Cli greet = new Cli();
                 greet.greet();
                 break;
             case "2":
-               new Even().play();
-               break;
+                new Even().play();
+                break;
             case "3":
                 new Calc().play();
                 break;
@@ -38,7 +37,7 @@ public class App {
                 new Prime().play();
                 break;
             default:
-                System.out.println("Wrong button.");
+                System.out.print("Wrong button, Bye!");
                 break;
         }
     }

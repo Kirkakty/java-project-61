@@ -1,9 +1,7 @@
 package hexlet.code.Game;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
-import java.util.Scanner;
 
 public class GCD {
     public int result = 0;

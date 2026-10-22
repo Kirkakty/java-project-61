@@ -2,7 +2,6 @@ package hexlet.code.Game;
 
 import hexlet.code.Engine;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calc {
     public int firstNumber;
@@ -19,7 +18,7 @@ public class Calc {
     public void play() {
         Engine.start(printRules());
         Random rn = new Random();
-        while(!Engine.isFinished()) {
+        while (!Engine.isFinished()) {
             firstNumber = rn.nextInt(100);
             secondNumber = rn.nextInt(100);
             operator = operators[rn.nextInt(3)];
@@ -40,11 +39,10 @@ public class Calc {
                     System.out.println("Error");
             }
             Engine.check(answer, String.valueOf(answerNumber));
-            if(!answer.equals(String.valueOf(answerNumber))){
+            if (!answer.equals(String.valueOf(answerNumber))) {
                 return;
             }
             Engine.finishGame();
-            }
-
         }
     }
+}

@@ -1,11 +1,9 @@
 package hexlet.code.Game;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
-import java.util.Scanner;
 
-public class Even  {
+public class Even {
     public int numberQuest;
 
     public String printRule() {
@@ -14,7 +12,7 @@ public class Even  {
 
     public void play() {
         Engine.start(printRule());
-        Random rn =new Random();
+        Random rn = new Random();
         while (!Engine.isFinished()) {
             numberQuest = rn.nextInt(100);
             Engine.getQuestions(String.valueOf(numberQuest));
@@ -30,15 +28,19 @@ public class Even  {
                     break;
                 case "no":
                     if (numberQuest % 2 == 0) {
-                    Engine.check(answer, "yes");
-                    return;
-                } else {
-                    Engine.check(answer, "no");
-                }
-                break;
-                default:
-                    System.out.println("Wrong");
+                        Engine.check(answer, "yes");
+                        return;
+                    } else {
+                        Engine.check(answer, "no");
+                    }
                     break;
+                default:
+                    if (numberQuest % 2 == 0) {
+                        Engine.check(answer, "yes");
+                    } else {
+                        Engine.check(answer, "no");
+                    }
+                    return;
             }
             Engine.finishGame();
         }
