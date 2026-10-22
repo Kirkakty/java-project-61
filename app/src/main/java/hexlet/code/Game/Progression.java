@@ -3,7 +3,7 @@ package hexlet.code.Game;
 import hexlet.code.Engine;
 import java.util.Random;
 
-public class Progressions {
+public class Progression {
 
     public String printRule() {
         return "What number is missing in the progression?";

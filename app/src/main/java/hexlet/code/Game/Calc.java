@@ -4,18 +4,19 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
-    public int firstNumber;
-    public int secondNumber;
-    public int answerNumber;
-    public char[] operators = {'+', '-', '*'};
-    public char operator;
-    public String questions;
+
 
     public String printRules() {
         return "What is the result of the expression?";
     }
 
     public void play() {
+        int firstNumber;
+        int secondNumber;
+        int answerNumber = 0;
+        char[] operators = {'+', '-', '*'};
+        char operator;
+        String questions;
         Engine.start(printRules());
         Random rn = new Random();
         while (!Engine.isFinished()) {

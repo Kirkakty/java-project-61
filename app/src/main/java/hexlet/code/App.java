@@ -31,7 +31,7 @@ public class App {
                 new GCD().play();
                 break;
             case "5":
-                new Progressions().play();
+                new Progression().play();
                 break;
             case "6":
                 new Prime().play();

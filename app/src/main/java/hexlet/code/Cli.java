@@ -12,7 +12,7 @@ public class Cli {
 
     public static void read() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("May i have your name?");
+        System.out.println("May I have your name?");
         name = sc.nextLine();
     }
 
