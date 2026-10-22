@@ -4,13 +4,13 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
-    public int numberQuest;
 
     public String printRule() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'";
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     public void play() {
+        int numberQuest = 0;
         Engine.start(printRule());
         Random rn = new Random();
         while (!Engine.isFinished()) {

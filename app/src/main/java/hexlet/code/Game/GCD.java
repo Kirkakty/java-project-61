@@ -4,13 +4,13 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GCD {
-    public int result = 0;
 
     public static String printRule() {
         return "Find the greatest common divisor of given numbers.";
     }
 
     public void play() {
+        int result = 0;
         Random rn = new Random();
         Engine.start(printRule());
         while (!Engine.isFinished()) {
