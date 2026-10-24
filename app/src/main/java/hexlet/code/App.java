@@ -18,8 +18,7 @@ public class App {
                 System.out.println("Bye!");
                 break;
             case "1":
-                Cli greet = new Cli();
-                greet.greet();
+                Cli.greet();
                 break;
             case "2":
                 new Even().play();

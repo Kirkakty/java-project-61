@@ -2,52 +2,44 @@ package hexlet.code.Game;
 
 import hexlet.code.Engine;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Prime {
-
-    public String printRule() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
-
     public void play() {
-        Engine.start(printRule());
+        System.out.print("May I have your name?");
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name + "!");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Random rn = new Random();
-        while (!Engine.isFinished()) {
-            int countResult = 0;
+        int countRounds = 0;
+        while (countRounds < 3) {
             int questionNumber = 1 + rn.nextInt(100);
-            Engine.getQuestions(String.valueOf(questionNumber));
-            String answer = Engine.getAnswer();
-            for (int i = 1; i <= questionNumber; i++) {
-                if (questionNumber % i == 0) {
-                    countResult++;
-                }
+            String correctAnswer = "";
+            if (isPrime(questionNumber)){
+                correctAnswer = "yes";
+            } else {
+                correctAnswer = "no";
             }
-            switch (answer) {
-                case "yes":
-                    if (countResult <= 2) {
-                        Engine.check(answer, "yes");
-                    } else {
-                        Engine.check(answer, "no");
-                        return;
-                    }
-                    break;
-                case "no":
-                    if (countResult <= 2) {
-                        Engine.check(answer, "yes");
-                        return;
-                    } else {
-                        Engine.check(answer, "no");
-                    }
-                    break;
-                default:
-                    if (countResult <= 2) {
-                        Engine.check(answer, "yes");
-                    } else {
-                        Engine.check(answer, "no");
-                    }
-                    return;
+            if(!Engine.greet(String.valueOf(questionNumber), correctAnswer,name)){
+                return;
             }
-            Engine.finishGame();
+            countRounds++;
         }
+    }
+    public boolean isPrime(int number) {
+        boolean isPrime = false;
+        if(number < 2) {
+            return isPrime;
+        }
+        for (int i = 2; i < number; i++){
+            if(number % i == 0) {
+                isPrime = false;
+                break;
+            } else {
+                isPrime = true;
+            }
+        }
+        return isPrime;
     }
 }

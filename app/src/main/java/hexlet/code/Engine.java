@@ -5,55 +5,32 @@ import java.util.Scanner;
 public class Engine {
     public static final int ROUNDS_TO_WIN = 3;
     public static int currentCount = 0;
-    static boolean checkAnswer;
+    public static final Scanner SC = new Scanner(System.in);
 
-    public static void start(String rules) {
-        Cli cli = new Cli();
-        cli.greet();
-        System.out.println(rules);
-    }
 
-    public static String getAnswer() {
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
-    }
-
-    public static void getQuestions(String questions) {
+    public static boolean greet(String questions, String correctAnswer, String name) {
         System.out.print("Question: " + questions + "\nYour answer: ");
-    }
-
-    public static boolean check(String userAnswer, String correctAnswer) {
-        if (userAnswer.equals(correctAnswer)) {
+        String answer = SC.nextLine();
+        boolean isFinish = false;
+        if (answer.equals(correctAnswer)) {
             System.out.println("Correct!");
-            checkAnswer = true;
-            return true;
+            currentCount++;
+            isFinish = true;
         } else {
             System.out.println(
                     "'"
-                            + userAnswer
+                            + answer
                             + "' is wrong answer ;(. Correct answer was '"
                             + correctAnswer
                             + "'"
                             + "\n Let's try again, "
-                            + Cli.getName()
+                            + name
                             + "!");
-            checkAnswer = false;
-            return false;
+            isFinish = false;
         }
-    }
-
-    public static boolean isFinished() {
-        return currentCount >= ROUNDS_TO_WIN;
-    }
-
-    public static void finishGame() {
-        if (checkAnswer) {
-            currentCount++;
-        } else {
-            return;
+        if (currentCount >= ROUNDS_TO_WIN) {
+            System.out.println("Congratulations, " + name + '!');
         }
-        if (currentCount == ROUNDS_TO_WIN) {
-            System.out.println("Congratulations, " + Cli.getName() + '!');
-        }
+        return isFinish;
     }
 }

@@ -2,47 +2,36 @@ package hexlet.code.Game;
 
 import hexlet.code.Engine;
 import java.util.Random;
+import java.util.Scanner;
 
-public class Even {
 
-    public String printRule() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    }
+public class Even{
 
-    public void play() {
+    public static void play() {
         int numberQuest = 0;
-        Engine.start(printRule());
+        System.out.print("May I have your name?");
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name + "!");
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Random rn = new Random();
-        while (!Engine.isFinished()) {
+        int countRounds = 0;
+        while (countRounds < 3) {
             numberQuest = rn.nextInt(100);
-            Engine.getQuestions(String.valueOf(numberQuest));
-            String answer = Engine.getAnswer();
-            switch (answer) {
-                case "yes":
-                    if (numberQuest % 2 == 0) {
-                        Engine.check(answer, "yes");
-                    } else {
-                        Engine.check(answer, "no");
-                        return;
-                    }
-                    break;
-                case "no":
-                    if (numberQuest % 2 == 0) {
-                        Engine.check(answer, "yes");
-                        return;
-                    } else {
-                        Engine.check(answer, "no");
-                    }
-                    break;
-                default:
-                    if (numberQuest % 2 == 0) {
-                        Engine.check(answer, "yes");
-                    } else {
-                        Engine.check(answer, "no");
-                    }
-                    return;
+            String question = String.valueOf(numberQuest);
+            String correctAnswer = "";
+            if (isEven(numberQuest)) {
+                correctAnswer = "yes";
+            } else {
+                correctAnswer = "no";
             }
-            Engine.finishGame();
+        if (!Engine.greet(question,correctAnswer,name)){
+            return;
         }
+        countRounds++;
+        }
+    }
+    public static boolean isEven(int number){
+        return number % 2 == 0;
     }
 }
