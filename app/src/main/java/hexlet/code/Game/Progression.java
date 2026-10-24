@@ -27,17 +27,17 @@ public class Progression {
                     questionsNumbers = questionsNumbers + firstNumber + " ";
                 }
             }
-            int answerNumber = answer(firstNumber,hiddenNumber,lengthOfNumbers, progressionNumber);
-            if(!Engine.greet(questionsNumbers, String.valueOf(answerNumber), name)){
+            int answerNumber =
+                    answer(firstNumber, hiddenNumber, lengthOfNumbers, progressionNumber);
+            if (!Engine.greet(questionsNumbers, String.valueOf(answerNumber), name)) {
                 return;
             }
             countRounds++;
         }
     }
 
-    public int answer(int firstNumber,int hidden, int length, int progression) {
+    public int answer(int firstNumber, int hidden, int length, int progression) {
         int beforeEnd = length - hidden;
         return firstNumber - beforeEnd * progression;
     }
 }
-

@@ -16,24 +16,25 @@ public class Prime {
         while (countRounds < 3) {
             int questionNumber = 1 + rn.nextInt(100);
             String correctAnswer = "";
-            if (isPrime(questionNumber)){
+            if (isPrime(questionNumber)) {
                 correctAnswer = "yes";
             } else {
                 correctAnswer = "no";
             }
-            if(!Engine.greet(String.valueOf(questionNumber), correctAnswer,name)){
+            if (!Engine.greet(String.valueOf(questionNumber), correctAnswer, name)) {
                 return;
             }
             countRounds++;
         }
     }
+
     public boolean isPrime(int number) {
         boolean isPrime = false;
-        if(number < 2) {
+        if (number < 2) {
             return isPrime;
         }
-        for (int i = 2; i < number; i++){
-            if(number % i == 0) {
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
                 isPrime = false;
                 break;
             } else {

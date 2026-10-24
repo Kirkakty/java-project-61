@@ -7,11 +7,10 @@ public class Engine {
     public static int currentCount = 0;
     public static final Scanner SC = new Scanner(System.in);
 
-
     public static boolean greet(String questions, String correctAnswer, String name) {
         System.out.print("Question: " + questions + "\nYour answer: ");
         String answer = SC.nextLine();
-        boolean isFinish = false;
+        boolean isFinish ;
         if (answer.equals(correctAnswer)) {
             System.out.println("Correct!");
             currentCount++;

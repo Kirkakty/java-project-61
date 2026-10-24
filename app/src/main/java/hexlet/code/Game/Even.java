@@ -4,8 +4,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-
-public class Even{
+public class Even {
 
     public static void play() {
         int numberQuest = 0;
@@ -25,13 +24,14 @@ public class Even{
             } else {
                 correctAnswer = "no";
             }
-        if (!Engine.greet(question,correctAnswer,name)){
-            return;
-        }
-        countRounds++;
+            if (!Engine.greet(question, correctAnswer, name)) {
+                return;
+            }
+            countRounds++;
         }
     }
-    public static boolean isEven(int number){
+
+    public static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }

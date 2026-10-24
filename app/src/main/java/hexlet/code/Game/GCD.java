@@ -18,18 +18,18 @@ public class GCD {
             int firstNumber = 1 + rn.nextInt(100);
             int secondNumber = 1 + rn.nextInt(100);
             String questions = firstNumber + " " + secondNumber;
-            resultGCD = result(firstNumber,secondNumber);
-            if(!Engine.greet(questions, String.valueOf(resultGCD),name)){
+            resultGCD = result(firstNumber, secondNumber);
+            if (!Engine.greet(questions, String.valueOf(resultGCD), name)) {
                 return;
             }
             countRounds++;
         }
     }
 
-    public int result (int first, int second) {
+    public int result(int first, int second) {
         int resultGCD = 1;
         for (int i = first; i >= 0; i--) {
-            if(first % i == 0 && second % i == 0) {
+            if (first % i == 0 && second % i == 0) {
                 resultGCD = i;
                 break;
             }

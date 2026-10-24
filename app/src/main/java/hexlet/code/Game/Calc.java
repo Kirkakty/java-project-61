@@ -25,12 +25,13 @@ public class Calc {
             operator = operators[rn.nextInt(3)];
             questions = firstNumber + " " + operator + " " + secondNumber;
             answerNumber = resultOfMath(firstNumber, secondNumber, operator);
-            if(!Engine.greet(questions,String.valueOf(answerNumber),name)){
+            if (!Engine.greet(questions, String.valueOf(answerNumber), name)) {
                 return;
             }
-            countRound ++;
+            countRound++;
         }
     }
+
     public int resultOfMath(int first, int second, char oper) {
         int answer = 0;
         switch (oper) {
