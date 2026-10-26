@@ -29,9 +29,9 @@ public class Prime {
     }
 
     public boolean isPrime(int number) {
-        boolean isPrime = false;
+        boolean isPrime = true;
         if (number < 2) {
-            return isPrime;
+            isPrime = false;
         }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
